@@ -29,13 +29,14 @@ def test_login(set_up):
          #   assert 'socks' not in link.text_content().lower()
     print("Hello Thiripura!!")
 
-@pytest.mark.parametrize("email",["thiripura29@gmail.com",
-                                pytest.param("thiripura30@gmail.com",marks=pytest.mark.xfail),
-                                pytest.param("thiripura31@gmail.com",marks=pytest.mark.xfail)])
-@pytest.mark.parametrize("passwrd",["Test@1234",
-                                            pytest.param("Test@123",marks=pytest.mark.xfail),
-                                            pytest.param("Test@124",marks=pytest.mark.xfail)])
-def test_login3(set_up,email,passwrd):
+@pytest.mark.regression
+#@pytest.mark.parametrize("email",["thiripura29@gmail.com",
+#                              pytest.param("thiripura30@gmail.com",marks=pytest.mark.xfail),
+#                                pytest.param("thiripura31@gmail.com",marks=pytest.mark.xfail)])
+#@pytest.mark.parametrize("passwrd",["Test@1234",
+#                                          pytest.param("Test@123",marks=pytest.mark.xfail),
+#                                           pytest.param("Test@124",marks=pytest.mark.xfail)])
+def test_login3(set_up):
     page =set_up
     # it takes sometimes whole page to be loaded and to perform action . So we need to add wait_for_load_state()
     page.wait_for_load_state("networkidle")
@@ -43,9 +44,9 @@ def test_login3(set_up,email,passwrd):
     page.get_by_test_id("signUp.switchToSignUp").click()
     page.get_by_role("button", name="Log in with Email").click()
     page.get_by_test_id("emailAuth").get_by_label("Email").click()
-    page.get_by_test_id("emailAuth").get_by_label("Email").fill(email)
+    page.get_by_test_id("emailAuth").get_by_label("Email").fill("thiripura29@gmail.com")
     page.get_by_label("Password").click()
-    page.get_by_label("Password").fill(passwrd)
+    page.get_by_label("Password").fill("Test@1234")
     page.get_by_label("Password").press("Enter")
     page.wait_for_load_state("networkidle")
 
