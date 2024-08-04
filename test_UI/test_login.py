@@ -3,8 +3,13 @@ import re
 from playwright.sync_api import Playwright, sync_playwright, expect
 import pytest
 
+PASSWORD=os.environ['PASSWORD']
 #import utils.secret_config
-
+#try:
+#   PASSWORD=os.environ['PASSWORD']
+#except KeyError:
+#   import utils.secret_config
+#   PASSWORD=utils.secret_config.PASSWORD
 
 @pytest.mark.smoke
 def test_login(set_up):
@@ -20,7 +25,7 @@ def test_login(set_up):
     page.get_by_test_id("emailAuth").get_by_label("Email").fill("thiripura29@gmail.com")
     page.get_by_label("Password").click()
     #page.get_by_label("Password").fill(utils.secret_config.PASSWORD)
-    page.get_by_label("Password").fill(os.environ['PASSWORD'])
+    page.get_by_label("Password").fill(PASSWORD)
     page.get_by_label("Password").press("Enter")
     page.wait_for_load_state("networkidle")
 
@@ -52,7 +57,7 @@ def test_login3(set_up):
     page.get_by_test_id("emailAuth").get_by_label("Email").fill("thiripura29@gmail.com")
     page.get_by_label("Password").click()
     #page.get_by_label("Password").fill(utils.secret_config.PASSWORD)
-    page.get_by_label("Password").fill(os.environ['PASSWORD'])
+    page.get_by_label("Password").fill(PASSWORD)
     page.get_by_label("Password").press("Enter")
     page.wait_for_load_state("networkidle")
 
@@ -80,7 +85,7 @@ def test_login1(set_up):
         page.get_by_test_id("emailAuth").get_by_label("Email").fill("thiripura29@gmail.com")
         page.get_by_label("Password").click()
         #page.get_by_label("Password").fill(utils.secret_config.PASSWORD)
-        page.get_by_label("Password").fill(os.environ['PASSWORD'])
+        page.get_by_label("Password").fill(PASSWORD)
         page.get_by_label("Password").press("Enter")
         page.wait_for_load_state("networkidle")
 
@@ -107,7 +112,7 @@ def test_login2(set_up):
     page.get_by_test_id("emailAuth").get_by_label("Email").fill("thiripura29@gmail.com")
     page.get_by_label("Password").click()
     #page.get_by_label("Password").fill(utils.secret_config.PASSWORD)
-    page.get_by_label("Password").fill(os.environ['PASSWORD'])
+    page.get_by_label("Password").fill(PASSWORD)
     page.get_by_label("Password").press("Enter")
     page.wait_for_load_state("networkidle")
 
