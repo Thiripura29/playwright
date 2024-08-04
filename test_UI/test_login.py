@@ -35,8 +35,7 @@ def test_login(set_up):
 #                                pytest.param("thiripura31@gmail.com",marks=pytest.mark.xfail)])
 #@pytest.mark.parametrize("passwrd",["Test@1234",
 #                                          pytest.param("Test@123",marks=pytest.mark.xfail),
-#
-#                                           pytest.param("Test@124",marks=pytest.mark.xfail)])
+#                                        pytest.param("Test@124",marks=pytest.mark.xfail)])
 def test_login3(set_up):
     page =set_up
     # it takes sometimes whole page to be loaded and to perform action . So we need to add wait_for_load_state()
