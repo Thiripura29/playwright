@@ -1,0 +1,61 @@
+Page -  https://playwright.dev/python/docs/test-runners
+
+
+CLI- Command Line Interface
+
+Run all test :
+type pytest in terminal
+
+skip the testrun :
+@pytest.mark.skip(reason="Not ready")
+
+mark the testrun as xfail :
+@pytest.mark.xfail(reason="URL Not ready")
+
+Reporting with pytest-reporter-html1:
+pytest --template=html1/index.html --report=report.html
+
+Combine pytest:
+pytest --maxfail=2 -m "regression" --template=html1/index.html --report=report.html
+
+Stop at first failure:
+pytest -x
+
+Allow max failure before stopping:
+pytest --maxfail=2
+
+Run single test:
+pytest -k test_func_name
+
+Run a single file:
+pytest test_file.py
+
+Re-Rerun last failed tests only:
+pytest --lf
+
+Re-Run all tests , starting with last failed:
+pytest --ff
+
+you can combine CLI operations together:
+pytest -ff -x -v
+
+Headed and run in different browser
+pytest --headed --browser=firefox --browser webkit
+
+Run test in chrome channel
+pytest --headed --browser-channel chrome
+
+slowmo :
+pytest --headed -m "smoke" --slowmo=400
+
+
+--headed: Run tests in headed mode (default: headless).
+--browser: Run tests in a different browser chromium, firefox, or webkit. It can be specified multiple times (default: chromium).
+--browser-channel Browser channel to be used.
+--slowmo Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on (default: 0).
+--device Device to be emulated.
+--output Directory for artifacts produced by tests (default: test-results).
+--tracing Whether to record a trace for each test. on, off, or retain-on-failure (default: off).
+--video Whether to record video for each test. on, off, or retain-on-failure (default: off).
+--screenshot Whether to automatically capture a screenshot after each test. on, off, or only-on-failure (default: off).
+--full-page-screenshot Whether to take a full page screenshot on failure. By default, only the viewport is captured. Requires --screenshot to be enabled (default: off).
