@@ -46,7 +46,6 @@ def test_login3(set_up):
 
     # it takes sometimes whole page to be loaded and to perform action . So we need to add wait_for_load_state()
     page.wait_for_load_state("networkidle")
-
     page.get_by_role("button", name="Log In").click()
     page.get_by_test_id("signUp.switchToSignUp").click()
     page.get_by_role("button", name="Log in with Email").click()
