@@ -15,18 +15,6 @@ PASSWORD = os.environ['PASSWORD']
 #   import utils.secret_config
 #   PASSWORD=utils.secret_config.PASSWORD
 
-@pytest.mark.smoke
-def test_new_page(set_up):
-    page = set_up
-
-    page.wait_for_load_state("networkidle")
-    page.get_by_label("thiripura29 account menu").click()
-    page.get_by_role("link", name="My Orders").click()
-    page.wait_for_load_state("networkidle")
-    expect(page.get_by_test_id("linkElement-0")).to_be_visible()
-    print("Hello Thiripura!!")
-
-
 @pytest.mark.regression
 # @pytest.mark.parametrize("email",["thiripura29@gmail.com",
 #                              pytest.param("thiripura30@gmail.com",marks=pytest.mark.xfail),
@@ -47,10 +35,11 @@ def test_logged_user_can_view_orders(login_set_up):
 
 def test_logged_user_can_view_newpage(go_to_newpage):
     page = go_to_newpage
-    expect(page.)
+    # expect(page.)
     print("Hello Thiripura!!")
 
 
+@pytest.mark.smoke
 @pytest.mark.xfail(reason="URL Not ready")
 def test_login3(set_up):
     page = set_up
